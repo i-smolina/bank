@@ -12,8 +12,11 @@ public class HealthController {
     @Value("${user.role}")
     private String role;
 
+    @Value(("${spring.jpa.database}"))
+    private String database;
+
     @GetMapping("/config")
     public String testConfig() {
-        return String.format("You are %s", role);
+        return String.format("You are %s %s" , role, database);
     }
 }
