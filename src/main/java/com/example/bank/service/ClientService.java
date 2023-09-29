@@ -18,7 +18,8 @@ public class ClientService {
     }
 
     public Client findById(int id) {
-        return clientRepository.findById(id).orElseThrow(() -> new NoContentException(id));
+        return clientRepository.findById(id).orElseThrow(
+                () -> new NoContentException("Not found client id = " + id));
     }
 
     public Client add(Client client) {
